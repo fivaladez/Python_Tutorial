@@ -25,7 +25,11 @@ my_array.reverse()
 print(my_array.buffer_info())
 my_array.count(3)
 
-
 my_array = array('i', [1, 2, 3, 4, 5])
 c = my_array.tolist()
 # [1, 2, 3, 4, 5]
+
+my_char_array = array('c', ['g', 'e', 'e', 'k'])
+# array('c', 'geek')
+print(my_char_array.tostring())
+# geek
