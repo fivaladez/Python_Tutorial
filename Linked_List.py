@@ -1,34 +1,46 @@
+""""""
+
+
 class Node:
+    """"""
 
     def __init__(self, val):
+        """"""
         self.data = val
         self.next = None
 
-    def getData(self):
+    def get_data(self):
+        """"""
         return self.data
 
-    def getNext(self):
+    def get_next(self):
+        """"""
         return self.next
 
-    def setData(self, val):
+    def set_data(self, val):
+        """"""
         self.data = val
 
-    def setNext(self, val):
+    def set_next(self, val):
+        """"""
         self.next = val
 
 
 class LinkedList:
+    """"""
+
     def __init__(self):
+        """"""
         self.head = None
 
-    def isEmpty(self):
+    def is_empty(self):
         """Check if the list is empty"""
         return self.head is None
 
     def add(self, item):
         """Add the item to the list"""
         new_node = Node(item)
-        new_node.setNext(self.head)
+        new_node.set_next(self.head)
         self.head = new_node
 
     def size(self):
@@ -37,7 +49,7 @@ class LinkedList:
         current = self.head
         while current is not None:
             count += 1
-            current = current.getNext()
+            current = current.get_next()
         return count
 
     def search(self, item):
@@ -45,10 +57,10 @@ class LinkedList:
         current = self.head
         found = False
         while current is not None and not found:
-            if current.getData() is item:
+            if current.get_data() is item:
                 found = True
             else:
-                current = current.getNext()
+                current = current.get_next()
         return found
 
     def remove(self, item):
@@ -57,16 +69,16 @@ class LinkedList:
         previous = None
         found = False
         while current is not None and not found:
-            if current.getData() is item:
+            if current.get_data() is item:
                 found = True
             else:
                 previous = current
-                current = current.getNext()
+                current = current.get_next()
         if found:
             if previous is None:
-                self.head = current.getNext()
+                self.head = current.get_next()
             else:
-                previous.setNext(current.getNext())
+                previous.set_next(current.get_next())
         else:
             raise ValueError
             print('Value not found.')
@@ -82,16 +94,16 @@ class LinkedList:
         current = self.head
         previous = None
         pos = 0
-        if position is 0:
+        if position == 0:
             self.add(item)
         else:
             new_node = Node(item)
             while pos < position:
                 pos += 1
                 previous = current
-                current = current.getNext()
-            previous.setNext(new_node)
-            new_node.setNext(current)
+                current = current.get_next()
+            previous.set_next(new_node)
+            new_node.set_next(current)
 
     def index(self, item):
         """
@@ -102,10 +114,10 @@ class LinkedList:
         pos = 0
         found = False
         while current is not None and not found:
-            if current.getData() is item:
+            if current.get_data() is item:
                 found = True
             else:
-                current = current.getNext()
+                current = current.get_next()
                 pos += 1
         if found:
             pass
@@ -125,17 +137,17 @@ class LinkedList:
             raise IndexError
         current = self.head
         if position is None:
-            ret = current.getData()
-            self.head = current.getNext()
+            ret = current.get_data()
+            self.head = current.get_next()
         else:
             pos = 0
             previous = None
             while pos < position:
                 previous = current
-                current = current.getNext()
+                current = current.get_next()
                 pos += 1
-                ret = current.getData()
-            previous.setNext(current.getNext())
+                ret = current.get_data()
+            previous.set_next(current.get_next())
         print(ret)
         return ret
 
@@ -147,28 +159,28 @@ class LinkedList:
         length = self.size()
         while pos < length:
             previous = current
-            current = current.getNext()
+            current = current.get_next()
             pos += 1
         new_node = Node(item)
         if previous is None:
-            new_node.setNext(current)
+            new_node.set_next(current)
             self.head = new_node
         else:
-            previous.setNext(new_node)
+            previous.set_next(new_node)
 
-    def printList(self):
+    def print_list(self):
         """Print the list"""
         current = self.head
         while current is not None:
-            print(current.getData())
-            current = current.getNext()
+            print(current.get_data())
+            current = current.get_next()
 
 
 if __name__ == "__main__":
-    ll = LinkedList()
-    ll.add('l')
-    ll.add('H')
-    ll.insert(1, 'e')
-    ll.append('l')
-    ll.append('o')
-    ll.printList()
+    LL = LinkedList()
+    LL.add('l')
+    LL.add('H')
+    LL.insert(1, 'e')
+    LL.append('l')
+    LL.append('o')
+    LL.print_list()

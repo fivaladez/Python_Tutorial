@@ -19,7 +19,7 @@ def foo(i):
 
 for i in range(3):
     for x in foo(i):
-        yield str(x)
+        str(x)
 
 #  [... for x in ... for y in ...]
 [str(x) for i in range(3) for x in foo(i)]
