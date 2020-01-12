@@ -1,4 +1,4 @@
-"""Shows how to create and use Linked Lists"""
+"""Shows how to create and use Linked Lists with Classes"""
 
 
 class Node:
