@@ -80,8 +80,8 @@ class LinkedList:
             else:
                 previous.set_next(current.get_next())
         else:
-            raise ValueError
             print('Value not found.')
+            raise ValueError
 
     def insert(self, position, item):
         """
@@ -89,8 +89,8 @@ class LinkedList:
         out of bounds, raise IndexError
         """
         if position > self.size() - 1:
-            raise IndexError
             print("Index out of bounds.")
+            raise IndexError
         current = self.head
         previous = None
         pos = 0
